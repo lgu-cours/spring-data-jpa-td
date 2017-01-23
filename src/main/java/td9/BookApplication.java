@@ -18,17 +18,19 @@ public class BookApplication {
 		book.setTitle("Germinal");
 		//book.setAuthor("Zola");
 		book.setPrice(12.45);
-		book.setQuantity(5); // 5 en stock
+		book.setQuantity(5); // quantity = 5
 		book.setAuthorId(1);
 		book.setPublisherId(1);
 		book.setIsbn("2253002860");
 		
 		// BookManager mgr
-		mgr.save(book); // écriture en base
-		mgr.addInStock(10, 2); // ajoute 2 au stock
-		Book book2 = mgr.load(1); // lecture en base
-		// afficher quantité en stock
-		System.out.println("Book 2 : " + book2);
+		mgr.save(book); // Save in database
+		System.out.println("Book saved : " + book);
+		
+		mgr.addInStock(10, 2); // Stock : 5 + 2 
+		Book book2 = mgr.load(10); // lecture en base
+		// 
+		System.out.println("Book loaded : " + book2); // quantity = 7
 	}
 	
 }
